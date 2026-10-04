@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эмоционалдық Интеллект - Кері байланыс алаңы</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --secondary-color: #818cf8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --accent-color: #10b981;
+            --error-color: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 850px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #cbd5e1;
+        }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .case-text {
+            font-style: italic;
+            color: #334155;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Эмоционалдық Интеллект Модельдері</h1>
+            <p>Топтарға арналған интерактивті кері байланыс және сынақ алаңы</p>
+        </header>
+
+        <!-- 1-ойын: Шындық па, Жалған ба? -->
+        <div class="card">
+            <h2>1-ойын: «Шындық па, Жалған ба?»</h2>
+            <p><strong>Тұжырым:</strong> «К. Петридес моделі эмоционалдық интеллектті когнитивтік (ақыл-ой) қабілет ретінде емес, тұлғалық қасиет (Trait EI) ретінде қарастырады.»</p>
+            <p>Бұл тұжырым шындық па, әлде жалған ба?</p>
+            <div class="btn-group">
+                <button onclick="checkAnswer(true, 'result1')">Шындық</button>
+                <button onclick="checkAnswer(false, 'result1')">Жалған</button>
+            </div>
+            <div id="result1" class="result-box"></div>
+        </div>
+
+        <!-- 2-ойын: Өмірлік кейс -->
+        <div class="card">
+            <h2>2-ойын: «Кәсіби кейс талдау»</h2>
+            <p class="case-text">«Мектептегі жас мұғалім күні бойы жұмыс барысында қатты шаршайды және күйзеліске түседі. Петридес моделінің <strong>"Өзін-өзі бақылау"</strong> және <strong>"Әл-ауқат"</strong> өлшемдеріне сүйене отырып, оған қандай кеңес берер едіңіз?»</p>
+            <button class="btn-secondary" onclick="toggleCaseHint('hint1')">Кеңес үлгісін көрсету / жасыру</button>
+            <div id="hint1" class="result-box" style="border-left-color: var(--primary-color);">
+                <strong>Үлгі жауап:</strong> Өзін-өзі бақылау арқылы импульстерді тежеп, күйзеліс сәттерінде сабырлы шешім қабылдауды үйрену қажет. Ал әл-ауқатты көтеру үшін өмірге оптимизммен қарап, өзін позитивті бағалауға көңіл бөлу маңызды.
+            </div>
+        </div>
+
+        <!-- 3-ойын: Блиц-сұрақ -->
+        <div class="card">
+            <h2>3-ойын: «Блиц сұрақ»</h2>
+            <p>К. Петридес ұсынған эмоционалдық интеллектті зерттеуге және диагностикалауға арналған негізгі сауалнама қалай аталады?</p>
+            <button class="btn-secondary" onclick="toggleCaseHint('hint2')">Жауабын көру / жасыру</button>
+            <div id="hint2" class="result-box" style="border-left-color: var(--primary-color);">
+                <strong>Жауап:</strong> TEIQue сауалнамасы (Trait Emotional Intelligence Questionnaire).
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(isTrue, elementId) {
+            const resultBox = document.getElementById(elementId);
+            resultBox.style.display = 'block';
+            if (isTrue) {
+                resultBox.style.borderLeftColor = 'var(--accent-color)';
+                resultBox.innerHTML = '<strong>Дұрыс!</strong> Бұл – шындық. Петридес бұл ұғымды тұлғалық қасиеттер аясында зерттейді.';
+            } else {
+                resultBox.style.borderLeftColor = 'var(--error-color)';
+                resultBox.innerHTML = '<strong>Қате!</strong> Бұл тұжырым шындық болып табылады, өйткені Петридес оны тұлғалық қасиет ретінде жіктейді.';
+            }
+        }
+
+        function toggleCaseHint(elementId) {
+            const hintBox = document.getElementById(elementId);
+            if (hintBox.style.display === 'block') {
+                hintBox.style.display = 'none';
+            } else {
+                hintBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
